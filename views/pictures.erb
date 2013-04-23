@@ -33,15 +33,15 @@
 
 
             <ul class="thumbnails roar">
-            <% 200.times do %>
+            <% 350.times do %>
               <% @roar = @parsed[@x] %>
-              <% @x = @x + 1 %>
+              <% @x = @x + rand(3) %>
               
                
 
                 <li class="span3">
                    
-                    <a href="#myModal<%= @x %>" role="button" class="btn" data-toggle="modal"><img class="group1" src="<%= @roar["url"] %>" title="Image Title" /></a>
+                    <a href="#myModal<%= @x %>" role="button" class="btn" data-toggle="modal"><img id='image1' class="group1" src="<%= @roar["url"] %>" title="Image Title" /></a>
                     
                     <div id="myModal<%= @x %>" class="modal hide fade" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
                       <div class="modal-header">
@@ -69,7 +69,7 @@
 
 <div id='injection_site'></div>
 
-<img id='image1' src='http://images.aviary.com/imagesv5/feather_default.jpg'/>
+
 
 <!-- Add an edit button, passing the HTML id of the image and the public URL of the image -->
 
@@ -100,6 +100,7 @@
            
            
        },
+       postUrl: 'http://localhost:4567/save',
        onError: function(errorObj) {
            alert(errorObj.message);
        }

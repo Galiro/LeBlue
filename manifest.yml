@@ -1,0 +1,17 @@
+---
+applications:
+  .:
+    name: LeBigBlue
+    framework:
+      name: sinatra
+      info:
+        mem: 128M
+        description: Sinatra Application
+        exec: ruby app.rb
+    infra: aws
+    url: ${name}.${target-base}
+    mem: 128M
+    instances: 1
+    services:
+      cocoaloa-mysql-29561:
+        type: mysql
